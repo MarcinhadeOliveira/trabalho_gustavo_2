@@ -1,0 +1,34 @@
+
+<h2 class="panel panel-body">Cadastro de Disciplina</h2>
+<div class="container-fluid">
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Nome Curso:</label>
+            <div class="col-sm-5">
+                <select class="form-control" ng-model="disciplina.CursoId">
+                    <option value="">Selecione um Curso</option>
+                    <option ng-repeat="lista in listaDeCursosSelect" value="{{lista.id}}">{{lista.nome}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputNome" class="col-sm-1 col-form-label">Nome:</label>
+            <div class="col-sm-5">
+                <input ng-model="disciplina.nome" type="text" class="form-control" id="inputNome" placeholder="Nome disciplina" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDescricao" class="col-sm-1 col-form-label">Descrição</label>
+            <div class="col-sm-5">
+                <input ng-model="disciplina.descricao" type="text" class="form-control" id="inputDescricao" placeholder="Descricao" required>
+            </div>
+        </div>
+        <div>
+            <label class="col-sm-1 col-form-label"></label>
+            <button type="submit" class="btn btn-warning"  ng-click="salvarDisciplina(disciplina)">
+                <span class="glyphicon glyphicon-plus"></span>
+                Cadastrar
+            </button>
+        </div>
+    </form>
+</div>

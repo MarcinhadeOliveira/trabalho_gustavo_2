@@ -1,0 +1,45 @@
+<h2 class="panel panel-body">Lista de Alunos</h2>
+<div>
+    <div class="col-sm-2">
+        <a href="#!cadastroAluno">
+            <button class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Adicionar Aluno</button>
+        </a>
+    </div>
+    <div class="col-sm-8">
+        <select class="form-control" ng-model="selected" ng-change="listarAlunosPorCurso(selected)">
+            <option value="">Selecione um Curso</option>
+            <option ng-repeat="lista in listaDeCursosSelect" value="{{lista.id}}">{{lista.nome}}</option>
+        </select>
+    </div>
+    <div>
+        <nav aria-label="...">
+            <ul class="pager" >
+                <li><button ng-disabled="selected" class="btn btn-warning" ng-click="VoltarPag(pagina)">
+                    <span class="glyphicon glyphicon-backward"></span>&nbsp Anterior</button>
+                </li>
+                <li><button ng-disabled="selected" class="btn btn-warning" ng-click="PassarPag(pagina)">
+                    Próximo &nbsp<span class="glyphicon glyphicon-forward"></span> </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Cpf</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="list in listaDeAlunos" >
+                <tr>
+                    <td>{{list.cpf}}</td>
+                    <td>{{list.nome}}</td>
+                    <td>{{list.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

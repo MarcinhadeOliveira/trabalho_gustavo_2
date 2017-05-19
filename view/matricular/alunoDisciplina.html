@@ -1,0 +1,95 @@
+<div class="col-md-6">
+    <div class="page-header text-center">
+        <h2>Lista de Alunos</h2>
+    </div>
+    <div class="container">
+        <label>Selecione um Curso</label>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <select class="form-control" ng-model="selectedCurso" ng-change="listarDisciplinasSelect(selectedCurso)">
+                <option value="">Selecione um Curso</option>
+                <option ng-repeat="lista in listaDeCursosSelect" value="{{lista.id}}">{{lista.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div>
+
+
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="bg-primary table-responsive table-bordered table-striped">
+                <th>CPF</th>
+                <th>Nome</th>
+                <th><input type="checkbox" ng-disabled="!selectedCurso" ng-model="selectAll" ng-click="checkAll()"> Matricular</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="aluno in listaDeAlunos" >
+            <tr>
+                <td>{{aluno.cpf}}</td>
+                <td>{{aluno.nome}}</td>
+                <td><input type="checkbox" ng-model="selected"
+                           ng-checked="checked(aluno)"
+                           ng-click="clicked(aluno)" >
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+<div class="col-md-5" >
+    <div class="page-header text-center">
+        <h2>Cadastrar Alunos na Disciplina</h2>
+    </div>
+    <div>
+        <label>Selecione uma disciplina</label>
+    </div>
+    <div class="row" >
+        <div class="col-md-12">
+            <select class="form-control" ng-disabled="!selectedCurso" ng-model="selectedDisciplina" ng-change ="listarAlunosPorCurso(selectedCurso)">
+                <option value="">Selecione uma Disciplina</option>
+                <option ng-repeat="lista in listaDeDisciplinasSelect" value="{{lista.id}}">{{lista.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div>
+        <label>Selecione um Semestre</label>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <select class="form-control" ng-disabled="!selectedDisciplina"
+                    ng-model="selectedSemestre" ng-change="alunosSemDisc(selectedCurso,selectedSemestre,selectedDisciplina)">
+                <option value="">Selecione Semestre</option>
+                <option ng-repeat="sem in listaDeSemestre" value="{{sem.id}}">{{sem.descricao}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="bg-primary table-responsive table-bordered table-striped">
+            <th>Nome</th>
+            <th>CPF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="list in listaAluMatSemestre">
+            <td>{{list.alunonome}}</td>
+            <td>{{list.alunocpf}}</td>
+        </tr>
+        <tr ng-repeat="list in listaDeAlunosSelecionados">
+            <td>{{list.nome}}</td>
+            <td>{{list.cpf}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-block btn-default" ng-disabled="!selectedSemestre" type="submit" ng-click="cadastrarAlunos(selectedDisciplina,selectedSemestre)">CADASTRAR ALUNOS EM DISCIPLINA</button>
+</div>
+</div>
+

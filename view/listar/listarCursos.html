@@ -1,0 +1,36 @@
+<h2 class="panel panel-body">Lista de Cursos</h2>
+<div>
+    <div class="col-sm-10">
+        <a href="#!cadastroCurso">
+            <button class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Adicionar Curso</button>
+        </a>
+    </div>
+    <div>
+        <nav aria-label="...">
+            <ul class="pager">
+                <li><button ng-disabled="selected" class="btn btn-warning" ng-click="VoltarPag(pagina)">
+                    <span class="glyphicon glyphicon-backward"></span>&nbsp Anterior</button>
+                </li>
+                <li><button ng-disabled="selected" class="btn btn-warning" ng-click="PassarPag(pagina)">
+                    Próximo &nbsp<span class="glyphicon glyphicon-forward"></span> </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="lista in listaDeCursos" >
+                <tr>
+                    <td>{{lista.id}}</td>
+                    <td>{{lista.nome}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

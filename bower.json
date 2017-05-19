@@ -1,0 +1,24 @@
+{
+  "name": "siscadif",
+  "description": "Trabalho CPW4",
+  "main": "",
+  "authors": [
+    "Marcia de Oliveira"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7",
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-loading-bar": "^0.9.0"
+  }
+}
